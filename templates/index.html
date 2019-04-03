@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% block title %}Recommender system{% endblock %}
+    {% block head %}
+	
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style type="text/css">
+	input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+
+        input[type="submit"]{
+   
+    padding: 10px 15px 11px !important;
+font-size: 15px !important;
+background-color: #57d6c7;
+font-weight: bold;
+text-shadow: 1px 1px #57D6C7;
+color: #ffffff;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border: 1px solid #57D6C7;
+cursor: pointer;
+box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+	}
+
+	table {
+  	font-family: arial, sans-serif;
+  	border-collapse: collapse;
+ 	 width: 100%;
+	}
+
+	td, th {
+	  border: 1px solid #dddddd;
+  	text-align: left;
+  	padding: 8px;
+	}
+
+	tr:nth-child(even) {
+	  background-color: #dddddd;
+	}
+
+     </style>
+{% endblock %}
+</head>
+
+{% block page_body %}
+    <div class="form-group">
+       <p>
+            <form action="/result" method="post">
+            	User ID:
+            	<br>
+                <input type="text" name="user_id" placeholder="Your user ID..">
+		
+		<br>
+<br>
+		Company:
+		<br>
+		
+		<select id = "company" name="company">
+		{% for i in range(n) %}
+		
+                <tr>
+		<option value="{{companies[i]}}">{{companies[i]}}</option>
+      		
+    		</tr>
+  		{% endfor %}
+		</select>
+
+		<br>
+		<br>
+		Search type:
+		<select id = "search_type" name="search_type">
+		{% for i in range(2) %}
+                <tr>
+		<option value="{{search[i]}}">{{search[i]}}</option>
+      		
+    		</tr>
+  		{% endfor %}
+		</select>
+		
+		<br>
+		<br>
+		Number of recommendations:
+		<br>
+		
+		<input type="text" name="number" placeholder="Enter a number..">
+		<br>
+		<br>
+                <input type="submit" name= "form" value="Submit" />
+            </form>
+        </p>
+	
+    </div>
+{% endblock %}

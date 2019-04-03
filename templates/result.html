@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Result{% endblock %}
+
+{% block page_body %}
+    <div class="form-group">
+        <p>
+            <h1> This is your recommendations:</h1>
+    <br>
+    <table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Picture</th>
+  </tr>
+
+  {% for i in range(n) %}
+    <tr>
+      <td>{{ res[i] }}</td>
+      <td>{{ name[i] }}</td>
+      <td>{{ price[i] }}</td>
+      <td><img src="{{ pictures[i] }}" alt="Recommend" width="250" height="167"></td>
+    </tr>
+  {% endfor %}
+  
+</table>
+    <br>
+        </p>
+    </div>
+{% endblock %}

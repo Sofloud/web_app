@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Add companies{% endblock %}
+
+
+{% block page_body %}
+
+    <div class="form-group">
+        <h2>Add companies</h2>
+	<br>
+
+<table>
+
+  <form action="/addcomp2" method="post">
+  {% for i in range(n) %}
+    <tr>
+      <td>{{companies[i]}}</td>
+      <td><input type="checkbox" name="add_it" value="{{ companies[i] }}"></td>
+    </tr>
+  {% endfor %}
+  
+</table>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+    </div>
+{% endblock %}
+
+
